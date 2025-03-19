@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de NAFI BADJI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                    },
+                },
+                fontFamily: {
+                    sans: ['Inter', 'system-ui', 'sans-serif'],
+                    display: ['Manrope', 'system-ui', 'sans-serif'],
+                }
+            },
+            darkMode: 'class',
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Styles sans @apply -->
+    <style>
+        /* Les styles personnalisés sont maintenant définis directement dans le HTML via les classes */
+    </style>
+</head>
+<body class="font-sans text-secondary-800 bg-white dark:bg-secondary-900 dark:text-white antialiased">
+    <!-- Mode sombre -->
+    <script>
+        // Détection du mode sombre
+        if (localStorage.getItem('dark-mode') === 'true' || 
+            (!localStorage.getItem('dark-mode') && 
+             window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('dark-mode', 'false');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('dark-mode', 'true');
+            }
+        }
+    </script>
+
+    <!-- Bouton de mode sombre -->
+    <button id="dark-mode-toggle" class="fixed bottom-4 right-4 p-3 bg-secondary-200 dark:bg-secondary-700 text-secondary-700 dark:text-secondary-200 rounded-full shadow-lg z-50 focus:outline-none hover:bg-secondary-300 dark:hover:bg-secondary-600 transition-colors" aria-label="Changer le mode d'affichage">
+        <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+        <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-secondary-900 shadow-md sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#accueil" class="text-2xl font-bold text-primary-600 dark:text-primary-400 font-display">NAFI<span class="text-secondary-800 dark:text-white">BADJI</span></a>
+            
+            <!-- Menu mobile -->
+            <button id="menu-toggle" class="md:hidden text-secondary-800 dark:text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            
+            <!-- Menu desktop -->
+            <ul class="hidden md:flex space-x-8">
+                <li>
+                    <a href="#accueil" class="font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">Accueil</a>
+                </li>
+                <li>
+                    <a href="#apropos" class="font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">À propos</a>
+                </li>
+                <li>
+                    <a href="#competences" class="font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">Compétences</a>
+                </li>
+                <li>
+                    <a href="#projets" class="font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">Projets</a>
+                </li>
+                <li>
+                    <a href="#contact" class="font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">Contact</a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Menu mobile overlay -->
+        <div id="mobile-menu" class="md:hidden fixed inset-0 bg-secondary-900 bg-opacity-95 z-50 flex flex-col items-center justify-center transform translate-x-full transition-transform duration-300 ease-in-out">
+            <button id="close-menu" class="absolute top-4 right-4 text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <ul class="space-y-6 text-center">
+                <li><a href="#accueil" class="text-xl font-medium text-white hover:text-primary-400">Accueil</a></li>
+                <li><a href="#apropos" class="text-xl font-medium text-white hover:text-primary-400">À propos</a></li>
+                <li><a href="#competences" class="text-xl font-medium text-white hover:text-primary-400">Compétences</a></li>
+                <li><a href="#projets" class="text-xl font-medium text-white hover:text-primary-400">Projets</a></li>
+                <li><a href="#contact" class="text-xl font-medium text-white hover:text-primary-400">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="min-h-screen flex items-center py-16 bg-gradient-to-br from-primary-50 to-secondary-100 dark:from-secondary-950 dark:to-secondary-900">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display">
+                        <span class="text-primary-600 dark:text-primary-400">Bonjour, je suis</span><br>
+                        <span class="text-secondary-900 dark:text-white">NAFI BADJI</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 text-secondary-700 dark:text-secondary-200">Développeuse Web Indépendante</p>
+                    <p class="text-lg mb-10 text-secondary-600 dark:text-secondary-300 max-w-xl">
+                        Je transforme vos idées en solutions numériques fonctionnelles et esthétiques, avec une expertise en développement web moderne.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#projets" class="inline-block py-3 px-6 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500">Voir mes projets</a>
+                        <a href="#contact" class="inline-block py-3 px-6 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md bg-transparent text-primary-600 hover:bg-primary-50 border-2 border-primary-600 focus:ring-primary-500">Me contacter</a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute -inset-3 bg-primary-500 rounded-full opacity-20 animate-pulse"></div>
+                        <img src="Image utilisé/nafina.jpg" alt="ma photo" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-white dark:border-secondary-800 shadow-2xl z-10 relative">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos" class="py-16 md:py-24 bg-white dark:bg-secondary-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-display tracking-tight text-secondary-900 dark:text-white">
+                <span class="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:transform after:-translate-x-1/2 after:w-24 after:h-1 after:bg-primary-500 after:rounded">À propos de moi</span>
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="bg-primary-100 dark:bg-primary-900/30 p-8 rounded-full">
+                            <i class="fas fa-user-circle text-6xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-primary-700 dark:text-primary-400 font-display">Qui suis-je ?</h3>
+                            <p class="mb-4 text-secondary-700 dark:text-secondary-200">
+                                Je suis NAFI BADJI. Après avoir obtenu ma licence en génie informatique, j'ai choisi de me lancer en tant que développeuse web indépendante. Mon objectif est de concevoir des sites web et des applications qui répondent aux besoins spécifiques de mes clients, tout en garantissant une expérience utilisateur optimale.
+                            </p>
+                            <p class="text-secondary-700 dark:text-secondary-200">
+                                Grâce à ma passion pour le design et le développement, je suis en mesure de transformer les idées de mes clients en solutions numériques fonctionnelles et esthétiques. Mon objectif est de créer des designs qui non seulement plaisent à l'œil, mais qui sont également fonctionnels et intuitifs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="competences" class="py-16 md:py-24 bg-secondary-50 dark:bg-secondary-800 relative overflow-hidden">
+        <!-- Décoration d'arrière-plan -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute -top-24 -left-24 w-64 h-64 bg-primary-400 opacity-10 dark:opacity-5 rounded-full"></div>
+            <div class="absolute top-1/4 -right-20 w-80 h-80 bg-primary-500 opacity-10 dark:opacity-5 rounded-full"></div>
+            <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-primary-600 opacity-10 dark:opacity-5 rounded-full"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-display tracking-tight text-secondary-900 dark:text-white">
+                <span class="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:transform after:-translate-x-1/2 after:w-24 after:h-1 after:bg-primary-500 after:rounded">Mes Compétences</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Bureautique -->
+                <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
+                            <i class="fas fa-file-word text-2xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 dark:text-white font-display">Bureautique</h3>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="flex flex-col items-center">
+                            <img src="Image utilisé/word.jpg" alt="Word" class="h-12 w-12 object-contain mb-2">
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Word</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="Image utilisé/excel.jpg" alt="Excel" class="h-12 w-12 object-contain mb-2">
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Excel</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="Image utilisé/powerpoint.jpg" alt="PowerPoint" class="h-12 w-12 object-contain mb-2">
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">PowerPoint</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Programmation -->
+                <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
+                            <i class="fas fa-code text-2xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 dark:text-white font-display">Programmation</h3>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="flex flex-col items-center">
+                            <img src="Image utilisé/htlm.jpg" alt="HTML" class="h-12 w-12 object-contain mb-2">
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">HTML</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="Image utilisé/css.jpg" alt="CSS" class="h-12 w-12 object-contain mb-2">
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">CSS</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="Image utilisé/javascript.jpg" alt="Javascript" class="h-12 w-12 object-contain mb-2">
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">JavaScript</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="Image utilisé/python.jpg" alt="Python" class="h-12 w-12 object-contain mb-2">
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Python</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="Image utilisé/mysql.jpg" alt="MySQL" class="h-12 w-12 object-contain mb-2">
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">MySQL</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="Image utilisé/java.jpg" alt="Java" class="h-12 w-12 object-contain mb-2">
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Java</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Frameworks -->
+                <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
+                            <i class="fab fa-react text-2xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 dark:text-white font-display">Frameworks</h3>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="flex flex-col items-center">
+                            <img src="Image utilisé/react.jpg" alt="React" class="h-12 w-12 object-contain mb-2">
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">React</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="Image utilisé/nest.jpg" alt="Nest" class="h-12 w-12 object-contain mb-2">
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Nest</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <img src="Image utilisé/node.jpg" alt="Node" class="h-12 w-12 object-contain mb-2">
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Node</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projets" class="py-16 md:py-24 bg-white dark:bg-secondary-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-display tracking-tight text-secondary-900 dark:text-white">
+                <span class="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:transform after:-translate-x-1/2 after:w-24 after:h-1 after:bg-primary-500 after:rounded">Mes Projets</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Projet 1 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-xl">
+                    <img src="Image utilisé/finadeco.png" alt="Projet 1" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 p-6 w-full">
+                            <h3 class="text-xl font-bold text-white mb-2 font-display transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">FINA DECO</h3>
+                            <p class="text-secondary-200 text-sm mb-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                                Une plateforme présentant le catalogue de "Fina Déco" avec des visuels immersifs de produits dans des mises en scène réelles. Inclut un filtre par style et des suggestions d'associations déco.
+                            </p>
+                            <a href="#" class="inline-block px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projet 2 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-xl">
+                    <img src="Image utilisé/biblio.jpg" alt="Projet 2" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 p-6 w-full">
+                            <h3 class="text-xl font-bold text-white mb-2 font-display transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">ArtSphere</h3>
+                            <p class="text-secondary-200 text-sm mb-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                                Un site web présentant une collection d'œuvres numériques avec filtres interactifs et mode plein écran. Ce projet met en avant mon talent en développement web et design visuel.
+                            </p>
+                            <a href="#" class="inline-block px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projet 3 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-xl">
+                    <img src="Image utilisé/afaire.jpg" alt="Projet 3" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="absolute bottom-0 p-6 w-full">
+                            <h3 class="text-xl font-bold text-white mb-2 font-display transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">Habit Tracker</h3>
+                            <p class="text-secondary-200 text-sm mb-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                                Une application web/mobile pour suivre ses habitudes quotidiennes avec statistiques, notifications et personnalisation. Elle démontre mes compétences en développement front-end et UX.
+                            </p>
+                            <a href="#" class="inline-block px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">Voir le projet</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 bg-secondary-50 dark:bg-secondary-800 relative overflow-hidden">
+        <!-- Décoration d'arrière-plan -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-100 to-transparent opacity-50 dark:opacity-5"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-display tracking-tight text-secondary-900 dark:text-white">
+                <span class="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:transform after:-translate-x-1/2 after:w-24 after:h-1 after:bg-primary-500 after:rounded">Contactez-moi</span>
+            </h2>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Informations de contact -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-6 text-secondary-900 dark:text-white font-display">Mes coordonnées</h3>
+                            
+                            <div class="flex items-start mb-6">
+                                <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-primary-600 dark:text-primary-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-secondary-500 dark:text-secondary-400 mb-1">Email</p>
+                                    <p class="text-secondary-800 dark:text-white">finabadji30@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start mb-6">
+                                <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone text-primary-600 dark:text-primary-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-secondary-500 dark:text-secondary-400 mb-1">Téléphone</p>
+                                    <p class="text-secondary-800 dark:text-white">+221 77 628 69 48</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-primary-600 dark:text-primary-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-secondary-500 dark:text-secondary-400 mb-1">Localisation</p>
+                                    <p class="text-secondary-800 dark:text-white">Dakar, Sénégal</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <p class="text-sm text-secondary-500 dark:text-secondary-400 mb-3">Suivez-moi</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full text-primary-600 dark:text-primary-400 hover:bg-primary-200 dark:hover:bg-primary-800/30 transition-colors">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full text-primary-600 dark:text-primary-400 hover:bg-primary-200 dark:hover:bg-primary-800/30 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full text-primary-600 dark:text-primary-400 hover:bg-primary-200 dark:hover:bg-primary-800/30 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full text-primary-600 dark:text-primary-400 hover:bg-primary-200 dark:hover:bg-primary-800/30 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formulaire de contact -->
+                <div class="lg:col-span-2">
+                    <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300">
+                        <h3 class="text-xl font-semibold mb-6 text-secondary-900 dark:text-white font-display">Envoyez-moi un message</h3>
+                        
+                        <form id="contact-form">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">Nom</label>
+                                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">Email</label>
+                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base"></textarea>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="facebook" class="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">Facebook (optionnel)</label>
+                                    <input type="text" id="facebook" name="facebook" placeholder="Lien de votre page Facebook" class="w-full px-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base">
+                                </div>
+                                
+                                <div>
+                                    <label for="instagram" class="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">Instagram (optionnel)</label>
+                                    <input type="text" id="instagram" name="instagram" placeholder="Lien de votre page Instagram" class="w-full px-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base">
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="inline-block py-3 px-6 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500 w-full md:w-auto">Envoyer le message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-900 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#accueil" class="text-2xl font-bold text-primary-400 font-display">NAFI<span class="text-white">BADJI</span></a>
+                    <p class="mt-2 text-secondary-400">Développeuse Web Indépendante</p>
+                </div>
+                
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <h4 class="text-lg font-semibold mb-3">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#accueil" class="text-secondary-400 hover:text-white transition-colors">Accueil</a></li>
+                        <li><a href="#apropos" class="text-secondary-400 hover:text-white transition-colors">À propos</a></li>
+                        <li><a href="#competences" class="text-secondary-400 hover:text-white transition-colors">Compétences</a></li>
+                        <li><a href="#projets" class="text-secondary-400 hover:text-white transition-colors">Projets</a></li>
+                        <li><a href="#contact" class="text-secondary-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="text-center md:text-left">
+                    <h4 class="text-lg font-semibold mb-3">Contactez-moi</h4>
+                    <p class="text-secondary-400 mb-2">finabadji30@gmail.com</p>
+                    <p class="text-secondary-400 mb-2">+221 77 628 69 48</p>
+                    <p class="text-secondary-400">Dakar, Sénégal</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 pt-6 border-t border-secondary-800 text-center">
+                <p class="text-secondary-400">&copy; 2025 NAFI BADJI - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div id="notification" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 opacity-0 transition-opacity duration-300 pointer-events-none">
+        Message envoyé avec succès !
+    </div>
+
+    <script>
+        // Gestion du menu mobile
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('translate-x-full');
+        });
+        
+        document.getElementById('close-menu').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('translate-x-full');
+        });
+        
+        // Fermer le menu mobile quand on clique sur un lien
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('translate-x-full');
+            });
+        });
+        
+        // Bouton de basculement du mode sombre
+        document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
+        
+        // Animation au défilement
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.card, .section-title, .project-card, .skill-card');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100 && elementBottom > 0) {
+                    element.classList.add('animate-in');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Exécuter une fois au chargement
+        
+        // Smooth scroll pour les liens d'ancrage
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Ajustement pour la navbar
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Gestion du formulaire de contact
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const facebook = document.getElementById('facebook').value;
+            const instagram = document.getElementById('instagram').value;
+
+            const data = {
+                name,
+                email,
+                message,
+                facebook,
+                instagram
+            };
+
+            console.log('Données du formulaire :', data);
+            
+            // Afficher la notification
+            const notification = document.getElementById('notification');
+            notification.classList.remove('opacity-0');
+            notification.classList.add('opacity-100');
+            
+            setTimeout(() => {
+                notification.classList.remove('opacity-100');
+                notification.classList.add('opacity-0');
+            }, 5000);
+            
+            this.reset();
+        });
+    </script>
+</body>
+</html>
