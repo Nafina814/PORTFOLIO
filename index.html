@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de NAFI BADJI</title>
+    <meta name="description" content="Portfolio de NAFI BADJI - Développeuse Web Indépendante basée à Dakar, Sénégal. Expertise en HTML, CSS, JavaScript, React et plus encore.">
+    <meta name="keywords" content="développeuse web, portfolio, Dakar, Sénégal, NAFI BADJI, React, JavaScript">
+    <meta name="author" content="NAFI BADJI">
+    <title>Portfolio de NAFI BADJI | Développeuse Web</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -36,24 +39,196 @@
                             900: '#0f172a',
                             950: '#020617',
                         },
+                        accent: {
+                            300: '#8B5CF6',
+                            400: '#7C3AED',
+                            500: '#6D28D9',
+                        },
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s ease infinite',
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-in-out',
+                        'slide-right': 'slideRight 0.6s ease-in-out',
+                        'slide-left': 'slideLeft 0.6s ease-in-out',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'typing': 'typing 3.5s steps(40, end), blink-caret .75s step-end infinite',
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        slideRight: {
+                            '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        slideLeft: {
+                            '0%': { transform: 'translateX(50px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        },
+                        typing: {
+                            '0%': { width: '0' },
+                            '100%': { width: '100%' }
+                        },
+                        'blink-caret': {
+                            '0%, 100%': { borderColor: 'transparent' },
+                            '50%': { borderColor: 'currentColor' }
+                        }
+                    },
+                    boxShadow: {
+                        'inner-light': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+                        'glow': '0 0 15px rgba(14, 165, 233, 0.5)',
+                        'glow-dark': '0 0 15px rgba(56, 189, 248, 0.3)',
                     },
                 },
                 fontFamily: {
                     sans: ['Inter', 'system-ui', 'sans-serif'],
                     display: ['Manrope', 'system-ui', 'sans-serif'],
+                    mono: ['Space Mono', 'monospace'],
                 }
             },
             darkMode: 'class',
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Styles sans @apply -->
+    <!-- Styles supplémentaires -->
     <style>
-        /* Les styles personnalisés sont maintenant définis directement dans le HTML via les classes */
+        /* Préchargeur */
+        .loader {
+            border-top-color: #0ea5e9;
+            -webkit-animation: spinner 1.5s linear infinite;
+            animation: spinner 1.5s linear infinite;
+        }
+        
+        @-webkit-keyframes spinner {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Scroll Indicator */
+        .scroll-indicator {
+            background: linear-gradient(to right, #0ea5e9 var(--scroll), transparent 0);
+        }
+        
+        /* Effet de dégradé */
+        .gradient-text {
+            background: linear-gradient(90deg, #0ea5e9, #6D28D9, #0ea5e9);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: gradient 8s ease infinite;
+        }
+        
+        /* Effet de typage */
+        .typing-effect {
+            overflow: hidden;
+            border-right: .15em solid #0ea5e9;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        /* Effet parallaxe */
+        .parallax {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+        
+        .parallax-item {
+            transform: translateZ(0);
+            transition: transform 0.2s;
+        }
+        
+        /* Effet de hover sur les cartes */
+        .hover-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .hover-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Bargraphs animés */
+        .skill-bar {
+            background: linear-gradient(to right, #0ea5e9 var(--percent), #e2e8f0 var(--percent));
+        }
+        
+        /* Smooth scrolling behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animated item */
+        .animate-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .animate-item.animate-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Effet de curseur personnalisé pour les liens */
+        @media (pointer: fine) {
+            .custom-cursor-link {
+                position: relative;
+                cursor: none;
+            }
+            
+            .custom-cursor-link:hover::after {
+                content: '';
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                background-color: #0ea5e9;
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                z-index: 9999;
+                animation: pulse 2s infinite;
+            }
+        }
     </style>
 </head>
 <body class="font-sans text-secondary-800 bg-white dark:bg-secondary-900 dark:text-white antialiased">
+    <!-- Préchargeur -->
+    <div id="preloader" class="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-secondary-900 transition-opacity duration-500">
+        <div class="relative">
+            <div class="loader h-16 w-16 rounded-full border-8 border-secondary-200 dark:border-secondary-700"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary-600 dark:text-primary-400 font-display font-bold text-xl">NB</div>
+        </div>
+    </div>
+
+    <!-- Indicateur de défilement -->
+    <div class="scroll-indicator fixed top-0 left-0 right-0 h-1 z-50"></div>
+
     <!-- Mode sombre -->
     <script>
         // Détection du mode sombre
@@ -86,10 +261,21 @@
         </svg>
     </button>
 
+    <!-- Bouton flottant pour remonter en haut -->
+    <button id="back-to-top" class="fixed bottom-4 left-4 p-3 bg-primary-600 text-white rounded-full shadow-lg z-50 focus:outline-none hover:bg-primary-700 transition-colors transform scale-0 opacity-0 transition-transform duration-300" aria-label="Retour en haut de page">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
     <!-- Navigation -->
-    <nav class="bg-white dark:bg-secondary-900 shadow-md sticky top-0 z-50 transition-all duration-300">
+    <nav id="navbar" class="bg-white dark:bg-secondary-900 shadow-md sticky top-0 z-40 transition-all duration-300">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#accueil" class="text-2xl font-bold text-primary-600 dark:text-primary-400 font-display">NAFI<span class="text-secondary-800 dark:text-white">BADJI</span></a>
+            <a href="#accueil" class="text-2xl font-bold relative group">
+                <span class="text-primary-600 dark:text-primary-400 font-display">NAFI</span>
+                <span class="text-secondary-800 dark:text-white">BADJI</span>
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+            </a>
             
             <!-- Menu mobile -->
             <button id="menu-toggle" class="md:hidden text-secondary-800 dark:text-white focus:outline-none">
@@ -101,19 +287,19 @@
             <!-- Menu desktop -->
             <ul class="hidden md:flex space-x-8">
                 <li>
-                    <a href="#accueil" class="font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">Accueil</a>
+                    <a href="#accueil" class="nav-link font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">Accueil</a>
                 </li>
                 <li>
-                    <a href="#apropos" class="font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">À propos</a>
+                    <a href="#apropos" class="nav-link font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">À propos</a>
                 </li>
                 <li>
-                    <a href="#competences" class="font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">Compétences</a>
+                    <a href="#competences" class="nav-link font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">Compétences</a>
                 </li>
                 <li>
-                    <a href="#projets" class="font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">Projets</a>
+                    <a href="#projets" class="nav-link font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">Projets</a>
                 </li>
                 <li>
-                    <a href="#contact" class="font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">Contact</a>
+                    <a href="#contact" class="nav-link font-medium text-secondary-700 dark:text-secondary-200 hover:text-primary-600 dark:hover:text-primary-400 relative inline-block px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-400 after:left-0 after:-bottom-1 after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">Contact</a>
                 </li>
             </ul>
         </div>
@@ -126,63 +312,184 @@
                 </svg>
             </button>
             <ul class="space-y-6 text-center">
-                <li><a href="#accueil" class="text-xl font-medium text-white hover:text-primary-400">Accueil</a></li>
-                <li><a href="#apropos" class="text-xl font-medium text-white hover:text-primary-400">À propos</a></li>
-                <li><a href="#competences" class="text-xl font-medium text-white hover:text-primary-400">Compétences</a></li>
-                <li><a href="#projets" class="text-xl font-medium text-white hover:text-primary-400">Projets</a></li>
-                <li><a href="#contact" class="text-xl font-medium text-white hover:text-primary-400">Contact</a></li>
+                <li><a href="#accueil" class="mobile-nav-link text-xl font-medium text-white hover:text-primary-400 block transition-colors duration-300 transform hover:scale-110">Accueil</a></li>
+                <li><a href="#apropos" class="mobile-nav-link text-xl font-medium text-white hover:text-primary-400 block transition-colors duration-300 transform hover:scale-110">À propos</a></li>
+                <li><a href="#competences" class="mobile-nav-link text-xl font-medium text-white hover:text-primary-400 block transition-colors duration-300 transform hover:scale-110">Compétences</a></li>
+                <li><a href="#projets" class="mobile-nav-link text-xl font-medium text-white hover:text-primary-400 block transition-colors duration-300 transform hover:scale-110">Projets</a></li>
+                <li><a href="#contact" class="mobile-nav-link text-xl font-medium text-white hover:text-primary-400 block transition-colors duration-300 transform hover:scale-110">Contact</a></li>
             </ul>
+            <div class="absolute bottom-10 flex space-x-4">
+                <a href="#" class="bg-secondary-800 p-3 rounded-full text-primary-400 hover:bg-primary-900 transition-colors">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="bg-secondary-800 p-3 rounded-full text-primary-400 hover:bg-primary-900 transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="bg-secondary-800 p-3 rounded-full text-primary-400 hover:bg-primary-900 transition-colors">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="accueil" class="min-h-screen flex items-center py-16 bg-gradient-to-br from-primary-50 to-secondary-100 dark:from-secondary-950 dark:to-secondary-900">
-        <div class="container mx-auto px-4">
+    <section id="accueil" class="min-h-screen flex items-center py-16 bg-gradient-to-br from-primary-50 to-secondary-100 dark:from-secondary-950 dark:to-secondary-900 relative overflow-hidden">
+        <!-- Arrière-plan avec particules -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="particles-container absolute inset-0"></div>
+            <!-- Formes décoratives -->
+            <div class="absolute top-20 left-10 w-24 h-24 rounded-full bg-primary-300 opacity-30 dark:opacity-10 animate-pulse-slow"></div>
+            <div class="absolute bottom-20 right-10 w-32 h-32 rounded-full bg-accent-300 opacity-20 dark:opacity-10 animate-pulse-slow" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/3 right-1/4 w-16 h-16 rounded-full bg-primary-400 opacity-20 dark:opacity-10 animate-pulse-slow" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10 animate-item" data-delay="0">
+                    <div class="relative overflow-hidden">
+                        <span class="text-sm font-mono tracking-wider inline-block py-1 px-3 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 mb-2 animate-fade-in"></span>
+                    </div>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display">
-                        <span class="text-primary-600 dark:text-primary-400">Bonjour, je suis</span><br>
-                        <span class="text-secondary-900 dark:text-white">NAFI BADJI</span>
+                        <span class="text-primary-600 dark:text-primary-400 block">Bonjour, je suis</span>
+                        <div class="overflow-hidden">
+                            <span class="text-secondary-900 dark:text-white gradient-text block typing-effect">NAFI BADJI</span>
+                        </div>
                     </h1>
-                    <p class="text-xl md:text-2xl mb-8 text-secondary-700 dark:text-secondary-200">Développeuse Web Indépendante</p>
-                    <p class="text-lg mb-10 text-secondary-600 dark:text-secondary-300 max-w-xl">
-                        Je transforme vos idées en solutions numériques fonctionnelles et esthétiques, avec une expertise en développement web moderne.
+                    <p class="text-xl md:text-2xl mb-4 text-secondary-700 dark:text-secondary-200">Développeuse Web Indépendante</p>
+                    <div class="w-24 h-1 bg-primary-500 rounded mb-6"></div>
+                    <p class="text-lg mb-10 text-secondary-600 dark:text-secondary-300 max-w-xl leading-relaxed">
+                        Je transforme vos idées en solutions numériques <span class="text-primary-600 dark:text-primary-400 font-medium">fonctionnelles</span> et <span class="text-primary-600 dark:text-primary-400 font-medium">esthétiques</span>, avec une expertise en développement web moderne.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#projets" class="inline-block py-3 px-6 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500">Voir mes projets</a>
-                        <a href="#contact" class="inline-block py-3 px-6 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md bg-transparent text-primary-600 hover:bg-primary-50 border-2 border-primary-600 focus:ring-primary-500">Me contacter</a>
+                        <a href="#projets" class="inline-block py-3 px-6 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500 group">
+                            <span class="flex items-center">
+                                <span>Voir mes projets</span>
+                                <svg class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="#contact" class="inline-block py-3 px-6 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md bg-transparent text-primary-600 hover:bg-primary-50 border-2 border-primary-600 focus:ring-primary-500 dark:text-primary-400 dark:border-primary-400 dark:hover:bg-primary-900/30">Me contacter</a>
                     </div>
                 </div>
-                <div class="lg:w-1/2 flex justify-center">
-                    <div class="relative">
-                        <div class="absolute -inset-3 bg-primary-500 rounded-full opacity-20 animate-pulse"></div>
-                        <img src="Image utilisé/nafina.jpg" alt="ma photo" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-white dark:border-secondary-800 shadow-2xl z-10 relative">
+                <div class="lg:w-1/2 flex justify-center animate-item" data-delay="300">
+                    <div class="relative parallax">
+                        <!-- Cercles d'arrière-plan -->
+                        <div class="absolute -inset-3 bg-gradient-to-br from-primary-400 to-accent-400 rounded-full opacity-20 animate-pulse parallax-item" data-depth="0.2"></div>
+                        <div class="absolute -inset-6 bg-primary-500 rounded-full opacity-10 parallax-item" data-depth="0.1"></div>
+                        <!-- Photo de profil -->
+                        <div class="relative z-10 hover-card transition-all duration-500">
+                            <div class="relative overflow-hidden rounded-full shadow-2xl">
+                                <img src="Image utilisé/nafina.jpg" alt="Portrait de NAFI BADJI" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-white dark:border-secondary-800 shadow-2xl z-10 relative transition-transform duration-700 hover:scale-110">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-primary-600/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-slow hidden md:flex">
+                <span class="text-sm text-secondary-600 dark:text-secondary-400 mb-2">Découvrir plus</span>
+                <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="apropos" class="py-16 md:py-24 bg-white dark:bg-secondary-900">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-display tracking-tight text-secondary-900 dark:text-white">
-                <span class="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:transform after:-translate-x-1/2 after:w-24 after:h-1 after:bg-primary-500 after:rounded">À propos de moi</span>
+    <section id="apropos" class="py-16 md:py-24 bg-white dark:bg-secondary-900 relative overflow-hidden">
+        <!-- Décoration d'arrière-plan -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-32 -right-32 w-64 h-64 bg-primary-200 dark:bg-primary-900/20 rounded-full opacity-70 dark:opacity-30"></div>
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-secondary-50/50 to-transparent dark:from-secondary-800/30 dark:to-transparent"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-display tracking-tight text-secondary-900 dark:text-white animate-item" data-delay="0">
+                <span class="relative inline-block">
+                    <span class="relative z-10">À propos de moi</span>
+                    <span class="absolute -bottom-3 left-0 w-full h-1 bg-primary-500 rounded-full"></span>
+                </span>
             </h2>
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="bg-primary-100 dark:bg-primary-900/30 p-8 rounded-full">
-                            <i class="fas fa-user-circle text-6xl text-primary-600 dark:text-primary-400"></i>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    <!-- Statistiques -->
+                    <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover-card animate-item" data-delay="100">
+                        <div class="text-center">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
+                                <i class="fas fa-code text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-secondary-900 dark:text-white font-display">100+</h3>
+                            <p class="text-secondary-600 dark:text-secondary-300">Projets Terminés</p>
                         </div>
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-4 text-primary-700 dark:text-primary-400 font-display">Qui suis-je ?</h3>
-                            <p class="mb-4 text-secondary-700 dark:text-secondary-200">
-                                Je suis NAFI BADJI. Après avoir obtenu ma licence en génie informatique, j'ai choisi de me lancer en tant que développeuse web indépendante. Mon objectif est de concevoir des sites web et des applications qui répondent aux besoins spécifiques de mes clients, tout en garantissant une expérience utilisateur optimale.
-                            </p>
-                            <p class="text-secondary-700 dark:text-secondary-200">
-                                Grâce à ma passion pour le design et le développement, je suis en mesure de transformer les idées de mes clients en solutions numériques fonctionnelles et esthétiques. Mon objectif est de créer des designs qui non seulement plaisent à l'œil, mais qui sont également fonctionnels et intuitifs.
-                            </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover-card animate-item" data-delay="200">
+                        <div class="text-center">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
+                                <i class="fas fa-laptop-code text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-secondary-900 dark:text-white font-display">5+</h3>
+                            <p class="text-secondary-600 dark:text-secondary-300">Années d'Expérience</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover-card animate-item" data-delay="300">
+                        <div class="text-center">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
+                                <i class="fas fa-users text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-secondary-900 dark:text-white font-display">50+</h3>
+                            <p class="text-secondary-600 dark:text-secondary-300">Clients Satisfaits</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-8 transition-all duration-300 hover:shadow-2xl animate-item" data-delay="400">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="md:w-1/3">
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-gradient-to-br from-primary-500 to-accent-500 rounded-lg transform rotate-6 opacity-20 dark:opacity-30"></div>
+                                <div class="bg-primary-100 dark:bg-primary-900/30 p-8 rounded-lg relative z-10 text-center">
+                                    <i class="fas fa-user-circle text-6xl text-primary-600 dark:text-primary-400 mb-6"></i>
+                                    <h3 class="text-xl font-semibold text-primary-700 dark:text-primary-400 font-display">Développeuse Web</h3>
+                                    <p class="text-secondary-600 dark:text-secondary-400 mt-2">Frontend & Backend</p>
+                                    <div class="mt-6 flex justify-center space-x-4">
+                                        <a href="#" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors">
+                                            <i class="fab fa-linkedin text-xl"></i>
+                                        </a>
+                                        <a href="#" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors">
+                                            <i class="fab fa-github text-xl"></i>
+                                        </a>
+                                        <a href="#" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-400 dark:hover:text-primary-400 transition-colors">
+                                            <i class="fab fa-twitter text-xl"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-2xl font-semibold mb-6 text-primary-700 dark:text-primary-400 font-display">Qui suis-je ?</h3>
+                            <div class="space-y-4 text-secondary-700 dark:text-secondary-200">
+                                <p class="leading-relaxed">
+                                    Je suis <span class="text-primary-600 dark:text-primary-400 font-medium">NAFI BADJI</span>, une développeuse web indépendante basée à Dakar, Sénégal. Après avoir obtenu ma licence en génie informatique, j'ai choisi de me lancer dans l'aventure entrepreneuriale pour offrir des solutions web personnalisées.
+                                </p>
+                                <p class="leading-relaxed">
+                                    Ma passion pour le <span class="text-primary-600 dark:text-primary-400 font-medium">design</span> et le <span class="text-primary-600 dark:text-primary-400 font-medium">développement</span> me permet de créer des sites web et des applications qui allient esthétique et fonctionnalité, offrant une expérience utilisateur optimale.
+                                </p>
+                                <p class="leading-relaxed">
+                                    Je m'engage à transformer les visions de mes clients en <span class="text-primary-600 dark:text-primary-400 font-medium">réalités numériques</span> qui répondent parfaitement à leurs objectifs commerciaux et créatifs.
+                                </p>
+                            </div>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <span class="px-3 py-1 rounded-full bg-primary-100 text-primary-800 text-sm dark:bg-primary-900/30 dark:text-primary-300">Développement Web</span>
+                                <span class="px-3 py-1 rounded-full bg-primary-100 text-primary-800 text-sm dark:bg-primary-900/30 dark:text-primary-300">UI/UX Design</span>
+                                <span class="px-3 py-1 rounded-full bg-primary-100 text-primary-800 text-sm dark:bg-primary-900/30 dark:text-primary-300">Responsive Design</span>
+                                <span class="px-3 py-1 rounded-full bg-primary-100 text-primary-800 text-sm dark:bg-primary-900/30 dark:text-primary-300">Progressive Web Apps</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -200,91 +507,306 @@
         </div>
         
         <div class="container mx-auto px-4 relative z-10">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-display tracking-tight text-secondary-900 dark:text-white">
-                <span class="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:transform after:-translate-x-1/2 after:w-24 after:h-1 after:bg-primary-500 after:rounded">Mes Compétences</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-display tracking-tight text-secondary-900 dark:text-white animate-item" data-delay="0">
+                <span class="relative inline-block">
+                    <span class="relative z-10">Mes Compétences</span>
+                    <span class="absolute -bottom-3 left-0 w-full h-1 bg-primary-500 rounded-full"></span>
+                </span>
             </h2>
             
+            <!-- Filtres de compétences -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12 animate-item" data-delay="100">
+                <button class="skill-filter-btn active px-4 py-2 rounded-full bg-primary-600 text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" data-filter="all">Toutes</button>
+                <button class="skill-filter-btn px-4 py-2 rounded-full bg-white dark:bg-secondary-700 text-secondary-800 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" data-filter="frontend">Frontend</button>
+                <button class="skill-filter-btn px-4 py-2 rounded-full bg-white dark:bg-secondary-700 text-secondary-800 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" data-filter="backend">Backend</button>
+                <button class="skill-filter-btn px-4 py-2 rounded-full bg-white dark:bg-secondary-700 text-secondary-800 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" data-filter="design">Design</button>
+                <button class="skill-filter-btn px-4 py-2 rounded-full bg-white dark:bg-secondary-700 text-secondary-800 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" data-filter="outils">Outils</button>
+            </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Bureautique -->
-                <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                    <div class="text-center mb-6">
-                        <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
-                            <i class="fas fa-file-word text-2xl text-primary-600 dark:text-primary-400"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-secondary-900 dark:text-white font-display">Bureautique</h3>
-                    </div>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <div class="flex flex-col items-center">
-                            <img src="Image utilisé/word.jpg" alt="Word" class="h-12 w-12 object-contain mb-2">
-                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Word</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <img src="Image utilisé/excel.jpg" alt="Excel" class="h-12 w-12 object-contain mb-2">
-                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Excel</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <img src="Image utilisé/powerpoint.jpg" alt="PowerPoint" class="h-12 w-12 object-contain mb-2">
-                            <span class="text-sm text-secondary-600 dark:text-secondary-400">PowerPoint</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Programmation -->
-                <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                <!-- Développement Frontend -->
+                <div class="skill-card bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 animate-item" data-delay="150" data-category="frontend">
                     <div class="text-center mb-6">
                         <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
                             <i class="fas fa-code text-2xl text-primary-600 dark:text-primary-400"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-secondary-900 dark:text-white font-display">Programmation</h3>
+                        <h3 class="text-xl font-bold text-secondary-900 dark:text-white font-display">Développement Frontend</h3>
                     </div>
-                    <div class="grid grid-cols-3 gap-4">
-                        <div class="flex flex-col items-center">
-                            <img src="Image utilisé/htlm.jpg" alt="HTML" class="h-12 w-12 object-contain mb-2">
-                            <span class="text-sm text-secondary-600 dark:text-secondary-400">HTML</span>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">HTML5 / CSS3</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">95%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 95%"></div>
+                            </div>
                         </div>
-                        <div class="flex flex-col items-center">
-                            <img src="Image utilisé/css.jpg" alt="CSS" class="h-12 w-12 object-contain mb-2">
-                            <span class="text-sm text-secondary-600 dark:text-secondary-400">CSS</span>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">JavaScript</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">85%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 85%"></div>
+                            </div>
                         </div>
-                        <div class="flex flex-col items-center">
-                            <img src="Image utilisé/javascript.jpg" alt="Javascript" class="h-12 w-12 object-contain mb-2">
-                            <span class="text-sm text-secondary-600 dark:text-secondary-400">JavaScript</span>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">React</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">80%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 80%"></div>
+                            </div>
                         </div>
-                        <div class="flex flex-col items-center">
-                            <img src="Image utilisé/python.jpg" alt="Python" class="h-12 w-12 object-contain mb-2">
-                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Python</span>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">Responsive Design</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">90%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 90%"></div>
+                            </div>
                         </div>
-                        <div class="flex flex-col items-center">
-                            <img src="Image utilisé/mysql.jpg" alt="MySQL" class="h-12 w-12 object-contain mb-2">
-                            <span class="text-sm text-secondary-600 dark:text-secondary-400">MySQL</span>
+                    </div>
+                </div>
+                
+                <!-- Développement Backend -->
+                <div class="skill-card bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 animate-item" data-delay="300" data-category="backend">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
+                            <i class="fas fa-server text-2xl text-primary-600 dark:text-primary-400"></i>
                         </div>
-                        <div class="flex flex-col items-center">
-                            <img src="Image utilisé/java.jpg" alt="Java" class="h-12 w-12 object-contain mb-2">
-                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Java</span>
+                        <h3 class="text-xl font-bold text-secondary-900 dark:text-white font-display">Développement Backend</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">Node.js</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">75%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">Python</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">80%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">MySQL / Base de données</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">85%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">Java</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">70%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Design -->
+                <div class="skill-card bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 animate-item" data-delay="450" data-category="design">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
+                            <i class="fas fa-palette text-2xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 dark:text-white font-display">Design UI/UX</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">Figma</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">80%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">Adobe XD</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">75%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">Design Responsive</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">90%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">Wireframing</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">85%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 85%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Frameworks -->
-                <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                <div class="skill-card bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 animate-item" data-delay="600" data-category="frontend">
                     <div class="text-center mb-6">
                         <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
                             <i class="fab fa-react text-2xl text-primary-600 dark:text-primary-400"></i>
                         </div>
                         <h3 class="text-xl font-bold text-secondary-900 dark:text-white font-display">Frameworks</h3>
                     </div>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <div class="flex flex-col items-center">
-                            <img src="Image utilisé/react.jpg" alt="React" class="h-12 w-12 object-contain mb-2">
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="flex flex-col items-center group">
+                            <div class="relative overflow-hidden rounded-lg mb-2">
+                                <img src="Image utilisé/react.jpg" alt="React" class="h-16 w-16 object-contain transition-transform duration-300 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-primary-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
                             <span class="text-sm text-secondary-600 dark:text-secondary-400">React</span>
                         </div>
-                        <div class="flex flex-col items-center">
-                            <img src="Image utilisé/nest.jpg" alt="Nest" class="h-12 w-12 object-contain mb-2">
+                        <div class="flex flex-col items-center group">
+                            <div class="relative overflow-hidden rounded-lg mb-2">
+                                <img src="Image utilisé/nest.jpg" alt="Nest" class="h-16 w-16 object-contain transition-transform duration-300 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-primary-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
                             <span class="text-sm text-secondary-600 dark:text-secondary-400">Nest</span>
                         </div>
-                        <div class="flex flex-col items-center">
-                            <img src="Image utilisé/node.jpg" alt="Node" class="h-12 w-12 object-contain mb-2">
+                        <div class="flex flex-col items-center group">
+                            <div class="relative overflow-hidden rounded-lg mb-2">
+                                <img src="Image utilisé/node.jpg" alt="Node" class="h-16 w-16 object-contain transition-transform duration-300 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-primary-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
                             <span class="text-sm text-secondary-600 dark:text-secondary-400">Node</span>
+                        </div>
+                        <div class="flex flex-col items-center group">
+                            <div class="relative overflow-hidden rounded-lg mb-2">
+                                <div class="h-16 w-16 flex items-center justify-center bg-secondary-100 dark:bg-secondary-700 rounded-lg">
+                                    <i class="fab fa-vuejs text-3xl text-green-500"></i>
+                                </div>
+                                <div class="absolute inset-0 bg-primary-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Vue.js</span>
+                        </div>
+                        <div class="flex flex-col items-center group">
+                            <div class="relative overflow-hidden rounded-lg mb-2">
+                                <div class="h-16 w-16 flex items-center justify-center bg-secondary-100 dark:bg-secondary-700 rounded-lg">
+                                    <i class="fab fa-bootstrap text-3xl text-purple-600"></i>
+                                </div>
+                                <div class="absolute inset-0 bg-primary-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Bootstrap</span>
+                        </div>
+                        <div class="flex flex-col items-center group">
+                            <div class="relative overflow-hidden rounded-lg mb-2">
+                                <div class="h-16 w-16 flex items-center justify-center bg-secondary-100 dark:bg-secondary-700 rounded-lg">
+                                    <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" fill="#38bdf8"></path>
+                                    </svg>
+                                </div>
+                                <div class="absolute inset-0 bg-primary-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bureautique -->
+                <div class="skill-card bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 animate-item" data-delay="750" data-category="outils">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
+                            <i class="fas fa-file-word text-2xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 dark:text-white font-display">Bureautique</h3>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="flex flex-col items-center group">
+                            <div class="relative overflow-hidden rounded-lg mb-2">
+                                <img src="Image utilisé/word.jpg" alt="Word" class="h-16 w-16 object-contain transition-transform duration-300 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-primary-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Word</span>
+                        </div>
+                        <div class="flex flex-col items-center group">
+                            <div class="relative overflow-hidden rounded-lg mb-2">
+                                <img src="Image utilisé/excel.jpg" alt="Excel" class="h-16 w-16 object-contain transition-transform duration-300 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-primary-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">Excel</span>
+                        </div>
+                        <div class="flex flex-col items-center group">
+                            <div class="relative overflow-hidden rounded-lg mb-2">
+                                <img src="Image utilisé/powerpoint.jpg" alt="PowerPoint" class="h-16 w-16 object-contain transition-transform duration-300 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-primary-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <span class="text-sm text-secondary-600 dark:text-secondary-400">PowerPoint</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Outils de développement -->
+                <div class="skill-card bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 animate-item" data-delay="900" data-category="outils">
+                    <div class="text-center mb-6">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-full mb-4">
+                            <i class="fas fa-tools text-2xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary-900 dark:text-white font-display">Outils</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">Git & GitHub</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">85%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">VS Code</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">90%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">Docker</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">70%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-secondary-700 dark:text-secondary-300">Netlify/Vercel</span>
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">80%</span>
+                            </div>
+                            <div class="w-full h-2 bg-secondary-200 dark:bg-secondary-700 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full rounded-full" style="--percent: 80%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -293,54 +815,116 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projets" class="py-16 md:py-24 bg-white dark:bg-secondary-900">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-display tracking-tight text-secondary-900 dark:text-white">
-                <span class="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:transform after:-translate-x-1/2 after:w-24 after:h-1 after:bg-primary-500 after:rounded">Mes Projets</span>
+    <section id="projets" class="py-16 md:py-24 bg-white dark:bg-secondary-900 relative overflow-hidden">
+        <!-- Décoration d'arrière-plan -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary-50 to-transparent opacity-70 dark:opacity-5"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-display tracking-tight text-secondary-900 dark:text-white animate-item" data-delay="0">
+                <span class="relative inline-block">
+                    <span class="relative z-10">Mes Projets</span>
+                    <span class="absolute -bottom-3 left-0 w-full h-1 bg-primary-500 rounded-full"></span>
+                </span>
             </h2>
+            
+            <!-- Filtres de projets -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12 animate-item" data-delay="100">
+                <button class="project-filter-btn active px-4 py-2 rounded-full bg-primary-600 text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" data-filter="all">Tous</button>
+                <button class="project-filter-btn px-4 py-2 rounded-full bg-white dark:bg-secondary-700 text-secondary-800 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" data-filter="web">Sites Web</button>
+                <button class="project-filter-btn px-4 py-2 rounded-full bg-white dark:bg-secondary-700 text-secondary-800 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" data-filter="app">Applications</button>
+                <button class="project-filter-btn px-4 py-2 rounded-full bg-white dark:bg-secondary-700 text-secondary-800 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors" data-filter="design">Design</button>
+            </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Projet 1 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-xl">
-                    <img src="Image utilisé/finadeco.png" alt="Projet 1" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div class="absolute bottom-0 p-6 w-full">
+                <div class="project-card group relative overflow-hidden rounded-xl shadow-xl hover-card animate-item" data-delay="200" data-category="web">
+                    <div class="aspect-w-16 aspect-h-9 relative overflow-hidden">
+                        <img src="Image utilisé/finadeco.png" alt="FINA DECO - Site web e-commerce" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                             <h3 class="text-xl font-bold text-white mb-2 font-display transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">FINA DECO</h3>
                             <p class="text-secondary-200 text-sm mb-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
-                                Une plateforme présentant le catalogue de "Fina Déco" avec des visuels immersifs de produits dans des mises en scène réelles. Inclut un filtre par style et des suggestions d'associations déco.
+                                Une plateforme e-commerce présentant le catalogue de "Fina Déco" avec des visuels immersifs de produits dans des mises en scène réelles.
                             </p>
-                            <a href="#" class="inline-block px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">Voir le projet</a>
+                            <div class="flex flex-wrap gap-2 mb-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                                <span class="px-2 py-1 rounded-full bg-primary-600/30 text-primary-300 text-xs">React</span>
+                                <span class="px-2 py-1 rounded-full bg-primary-600/30 text-primary-300 text-xs">Node.js</span>
+                                <span class="px-2 py-1 rounded-full bg-primary-600/30 text-primary-300 text-xs">MongoDB</span>
+                            </div>
+                            <a href="#" class="inline-block px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100 mt-auto">
+                                <span class="flex items-center">
+                                    <span>Voir le projet</span>
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Projet 2 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-xl">
-                    <img src="Image utilisé/biblio.jpg" alt="Projet 2" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div class="absolute bottom-0 p-6 w-full">
+                <div class="project-card group relative overflow-hidden rounded-xl shadow-xl hover-card animate-item" data-delay="350" data-category="design">
+                    <div class="aspect-w-16 aspect-h-9 relative overflow-hidden">
+                        <img src="Image utilisé/biblio.jpg" alt="ArtSphere - Galerie d'art numérique" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                             <h3 class="text-xl font-bold text-white mb-2 font-display transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">ArtSphere</h3>
                             <p class="text-secondary-200 text-sm mb-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
-                                Un site web présentant une collection d'œuvres numériques avec filtres interactifs et mode plein écran. Ce projet met en avant mon talent en développement web et design visuel.
+                                Une galerie d'art numérique avec filtres interactifs et mode plein écran. Parfait pour les artistes qui veulent présenter leur travail.
                             </p>
-                            <a href="#" class="inline-block px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">Voir le projet</a>
+                            <div class="flex flex-wrap gap-2 mb-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                                <span class="px-2 py-1 rounded-full bg-primary-600/30 text-primary-300 text-xs">Vue.js</span>
+                                <span class="px-2 py-1 rounded-full bg-primary-600/30 text-primary-300 text-xs">Tailwind CSS</span>
+                                <span class="px-2 py-1 rounded-full bg-primary-600/30 text-primary-300 text-xs">Figma</span>
+                            </div>
+                            <a href="#" class="inline-block px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100 mt-auto">
+                                <span class="flex items-center">
+                                    <span>Voir le projet</span>
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Projet 3 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-xl">
-                    <img src="Image utilisé/afaire.jpg" alt="Projet 3" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div class="absolute bottom-0 p-6 w-full">
+                <div class="project-card group relative overflow-hidden rounded-xl shadow-xl hover-card animate-item" data-delay="500" data-category="app">
+                    <div class="aspect-w-16 aspect-h-9 relative overflow-hidden">
+                        <img src="Image utilisé/afaire.jpg" alt="Habit Tracker - Application de suivi d'habitudes" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 via-secondary-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                             <h3 class="text-xl font-bold text-white mb-2 font-display transform translate-y-6 group-hover:translate-y-0 transition-transform duration-300">Habit Tracker</h3>
                             <p class="text-secondary-200 text-sm mb-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
-                                Une application web/mobile pour suivre ses habitudes quotidiennes avec statistiques, notifications et personnalisation. Elle démontre mes compétences en développement front-end et UX.
+                                Application progressive web app pour suivre les habitudes quotidiennes, avec statistiques, notifications et personnalisation poussée.
                             </p>
-                            <a href="#" class="inline-block px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">Voir le projet</a>
+                            <div class="flex flex-wrap gap-2 mb-4 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
+                                <span class="px-2 py-1 rounded-full bg-primary-600/30 text-primary-300 text-xs">React</span>
+                                <span class="px-2 py-1 rounded-full bg-primary-600/30 text-primary-300 text-xs">Firebase</span>
+                                <span class="px-2 py-1 rounded-full bg-primary-600/30 text-primary-300 text-xs">PWA</span>
+                            </div>
+                            <a href="#" class="inline-block px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100 mt-auto">
+                                <span class="flex items-center">
+                                    <span>Voir le projet</span>
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Voir plus de projets -->
+            <div class="flex justify-center mt-12 animate-item" data-delay="600">
+                <a href="#" class="inline-block py-3 px-6 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md bg-secondary-200 hover:bg-secondary-300 text-secondary-900 dark:bg-secondary-700 dark:hover:bg-secondary-600 dark:text-white group">
+                    <span class="flex items-center">
+                        <span>Voir plus de projets</span>
+                        <svg class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </span>
+                </a>
             </div>
         </div>
     </section>
@@ -349,41 +933,49 @@
     <section id="contact" class="py-16 md:py-24 bg-secondary-50 dark:bg-secondary-800 relative overflow-hidden">
         <!-- Décoration d'arrière-plan -->
         <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-100 to-transparent opacity-50 dark:opacity-5"></div>
+        <!-- Formes décoratives -->
+        <div class="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-primary-300 opacity-20 dark:opacity-5"></div>
         
         <div class="container mx-auto px-4 relative z-10">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-display tracking-tight text-secondary-900 dark:text-white">
-                <span class="relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:transform after:-translate-x-1/2 after:w-24 after:h-1 after:bg-primary-500 after:rounded">Contactez-moi</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-display tracking-tight text-secondary-900 dark:text-white animate-item" data-delay="0">
+                <span class="relative inline-block">
+                    <span class="relative z-10">Contactez-moi</span>
+                    <span class="absolute -bottom-3 left-0 w-full h-1 bg-primary-500 rounded-full"></span>
+                </span>
             </h2>
             
-            <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Informations de contact -->
                 <div class="lg:col-span-1">
-                    <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300 h-full flex flex-col justify-between">
+                    <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-8 transition-all duration-300 h-full flex flex-col justify-between hover-card animate-item" data-delay="100">
                         <div>
-                            <h3 class="text-xl font-semibold mb-6 text-secondary-900 dark:text-white font-display">Mes coordonnées</h3>
+                            <h3 class="text-xl font-semibold mb-8 text-secondary-900 dark:text-white font-display relative">
+                                <span class="relative z-10">Mes coordonnées</span>
+                                <span class="absolute -bottom-2 left-0 w-16 h-0.5 bg-primary-500 rounded-full"></span>
+                            </h3>
                             
-                            <div class="flex items-start mb-6">
-                                <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full mr-4">
+                            <div class="flex items-start mb-8 group">
+                                <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full mr-4 transform transition-transform duration-300 group-hover:scale-110 group-hover:shadow-glow dark:group-hover:shadow-glow-dark">
                                     <i class="fas fa-envelope text-primary-600 dark:text-primary-400"></i>
                                 </div>
                                 <div>
                                     <p class="text-sm text-secondary-500 dark:text-secondary-400 mb-1">Email</p>
-                                    <p class="text-secondary-800 dark:text-white">finabadji30@gmail.com</p>
+                                    <a href="mailto:finabadji30@gmail.com" class="text-secondary-800 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">finabadji30@gmail.com</a>
                                 </div>
                             </div>
                             
-                            <div class="flex items-start mb-6">
-                                <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full mr-4">
+                            <div class="flex items-start mb-8 group">
+                                <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full mr-4 transform transition-transform duration-300 group-hover:scale-110 group-hover:shadow-glow dark:group-hover:shadow-glow-dark">
                                     <i class="fas fa-phone text-primary-600 dark:text-primary-400"></i>
                                 </div>
                                 <div>
                                     <p class="text-sm text-secondary-500 dark:text-secondary-400 mb-1">Téléphone</p>
-                                    <p class="text-secondary-800 dark:text-white">+221 77 628 69 48</p>
+                                    <a href="tel:+221776286948" class="text-secondary-800 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors">+221 77 628 69 48</a>
                                 </div>
                             </div>
                             
-                            <div class="flex items-start">
-                                <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full mr-4">
+                            <div class="flex items-start group">
+                                <div class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full mr-4 transform transition-transform duration-300 group-hover:scale-110 group-hover:shadow-glow dark:group-hover:shadow-glow-dark">
                                     <i class="fas fa-map-marker-alt text-primary-600 dark:text-primary-400"></i>
                                 </div>
                                 <div>
@@ -393,19 +985,19 @@
                             </div>
                         </div>
                         
-                        <div class="mt-8">
-                            <p class="text-sm text-secondary-500 dark:text-secondary-400 mb-3">Suivez-moi</p>
+                        <div class="mt-12">
+                            <p class="text-sm text-secondary-500 dark:text-secondary-400 mb-4 font-medium">Suivez-moi sur les réseaux sociaux</p>
                             <div class="flex space-x-4">
-                                <a href="#" class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full text-primary-600 dark:text-primary-400 hover:bg-primary-200 dark:hover:bg-primary-800/30 transition-colors">
+                                <a href="#" class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full text-primary-600 dark:text-primary-400 hover:bg-primary-200 dark:hover:bg-primary-800/30 transition-colors hover:scale-110 transform transition-transform duration-300 hover:shadow-glow dark:hover:shadow-glow-dark">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
-                                <a href="#" class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full text-primary-600 dark:text-primary-400 hover:bg-primary-200 dark:hover:bg-primary-800/30 transition-colors">
+                                <a href="#" class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full text-primary-600 dark:text-primary-400 hover:bg-primary-200 dark:hover:bg-primary-800/30 transition-colors hover:scale-110 transform transition-transform duration-300 hover:shadow-glow dark:hover:shadow-glow-dark">
                                     <i class="fab fa-github"></i>
                                 </a>
-                                <a href="#" class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full text-primary-600 dark:text-primary-400 hover:bg-primary-200 dark:hover:bg-primary-800/30 transition-colors">
+                                <a href="#" class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full text-primary-600 dark:text-primary-400 hover:bg-primary-200 dark:hover:bg-primary-800/30 transition-colors hover:scale-110 transform transition-transform duration-300 hover:shadow-glow dark:hover:shadow-glow-dark">
                                     <i class="fab fa-twitter"></i>
                                 </a>
-                                <a href="#" class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full text-primary-600 dark:text-primary-400 hover:bg-primary-200 dark:hover:bg-primary-800/30 transition-colors">
+                                <a href="#" class="bg-primary-100 dark:bg-primary-900/30 p-3 rounded-full text-primary-600 dark:text-primary-400 hover:bg-primary-200 dark:hover:bg-primary-800/30 transition-colors hover:scale-110 transform transition-transform duration-300 hover:shadow-glow dark:hover:shadow-glow-dark">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </div>
@@ -415,40 +1007,87 @@
                 
                 <!-- Formulaire de contact -->
                 <div class="lg:col-span-2">
-                    <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-6 transition-all duration-300">
-                        <h3 class="text-xl font-semibold mb-6 text-secondary-900 dark:text-white font-display">Envoyez-moi un message</h3>
+                    <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-xl p-8 transition-all duration-300 hover-card animate-item" data-delay="300">
+                        <h3 class="text-xl font-semibold mb-8 text-secondary-900 dark:text-white font-display relative">
+                            <span class="relative z-10">Envoyez-moi un message</span>
+                            <span class="absolute -bottom-2 left-0 w-16 h-0.5 bg-primary-500 rounded-full"></span>
+                        </h3>
                         
-                        <form id="contact-form">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                <div>
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="form-group">
                                     <label for="name" class="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">Nom</label>
-                                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base">
+                                    <div class="relative">
+                                        <span class="absolute inset-y-0 left-3 flex items-center text-secondary-500">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                        <input type="text" id="name" name="name" required class="w-full pl-10 pr-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base transition-shadow duration-300 focus:shadow-glow dark:focus:shadow-glow-dark">
+                                    </div>
                                 </div>
                                 
-                                <div>
+                                <div class="form-group">
                                     <label for="email" class="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">Email</label>
-                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base">
+                                    <div class="relative">
+                                        <span class="absolute inset-y-0 left-3 flex items-center text-secondary-500">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
+                                        <input type="email" id="email" name="email" required class="w-full pl-10 pr-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base transition-shadow duration-300 focus:shadow-glow dark:focus:shadow-glow-dark">
+                                    </div>
                                 </div>
                             </div>
                             
-                            <div class="mb-6">
-                                <label for="message" class="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">Message</label>
-                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base"></textarea>
+                            <div class="form-group">
+                                <label for="subject" class="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">Sujet</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-3 flex items-center text-secondary-500">
+                                        <i class="fas fa-tag"></i>
+                                    </span>
+                                    <input type="text" id="subject" name="subject" required class="w-full pl-10 pr-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base transition-shadow duration-300 focus:shadow-glow dark:focus:shadow-glow-dark">
+                                </div>
                             </div>
                             
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                <div>
+                            <div class="form-group">
+                                <label for="message" class="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">Message</label>
+                                <div class="relative">
+                                    <span class="absolute top-3 left-3 text-secondary-500">
+                                        <i class="fas fa-comment-alt"></i>
+                                    </span>
+                                    <textarea id="message" name="message" rows="5" required class="w-full pl-10 pr-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base transition-shadow duration-300 focus:shadow-glow dark:focus:shadow-glow-dark"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="form-group">
                                     <label for="facebook" class="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">Facebook (optionnel)</label>
-                                    <input type="text" id="facebook" name="facebook" placeholder="Lien de votre page Facebook" class="w-full px-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base">
+                                    <div class="relative">
+                                        <span class="absolute inset-y-0 left-3 flex items-center text-secondary-500">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </span>
+                                        <input type="text" id="facebook" name="facebook" placeholder="Lien de votre page Facebook" class="w-full pl-10 pr-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base transition-shadow duration-300 focus:shadow-glow dark:focus:shadow-glow-dark">
+                                    </div>
                                 </div>
                                 
-                                <div>
+                                <div class="form-group">
                                     <label for="instagram" class="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">Instagram (optionnel)</label>
-                                    <input type="text" id="instagram" name="instagram" placeholder="Lien de votre page Instagram" class="w-full px-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base">
+                                    <div class="relative">
+                                        <span class="absolute inset-y-0 left-3 flex items-center text-secondary-500">
+                                            <i class="fab fa-instagram"></i>
+                                        </span>
+                                        <input type="text" id="instagram" name="instagram" placeholder="Lien de votre page Instagram" class="w-full pl-10 pr-4 py-3 border border-secondary-300 dark:border-secondary-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-secondary-700 dark:text-white text-base transition-shadow duration-300 focus:shadow-glow dark:focus:shadow-glow-dark">
+                                    </div>
                                 </div>
                             </div>
                             
-                            <button type="submit" class="inline-block py-3 px-6 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500 w-full md:w-auto">Envoyer le message</button>
+                            <div>
+                                <button type="submit" class="inline-block py-3 px-6 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500 w-full md:w-auto group">
+                                    <span class="flex items-center justify-center">
+                                        <span>Envoyer le message</span>
+                                        <svg class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -457,45 +1096,127 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-secondary-900 text-white py-10">
-        <div class="container mx-auto px-4">
+    <footer class="bg-secondary-900 text-white py-10 relative overflow-hidden">
+        <!-- Formes décoratives -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-600 to-accent-500 opacity-30"></div>
+            <div class="absolute -bottom-40 -right-40 w-80 h-80 rounded-full bg-primary-500 opacity-5"></div>
+            <div class="absolute -bottom-30 -left-20 w-60 h-60 rounded-full bg-accent-500 opacity-5"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
+                <div class="mb-8 md:mb-0 text-center md:text-left">
                     <a href="#accueil" class="text-2xl font-bold text-primary-400 font-display">NAFI<span class="text-white">BADJI</span></a>
                     <p class="mt-2 text-secondary-400">Développeuse Web Indépendante</p>
+                    <div class="mt-4 flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="text-secondary-400 hover:text-primary-400 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-secondary-400 hover:text-primary-400 transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-secondary-400 hover:text-primary-400 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-secondary-400 hover:text-primary-400 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
                 
-                <div class="mb-6 md:mb-0 text-center md:text-left">
-                    <h4 class="text-lg font-semibold mb-3">Navigation</h4>
+                <div class="mb-8 md:mb-0 text-center md:text-left">
+                    <h4 class="text-lg font-semibold mb-4 text-white"></h4>
                     <ul class="space-y-2">
-                        <li><a href="#accueil" class="text-secondary-400 hover:text-white transition-colors">Accueil</a></li>
-                        <li><a href="#apropos" class="text-secondary-400 hover:text-white transition-colors">À propos</a></li>
-                        <li><a href="#competences" class="text-secondary-400 hover:text-white transition-colors">Compétences</a></li>
-                        <li><a href="#projets" class="text-secondary-400 hover:text-white transition-colors">Projets</a></li>
-                        <li><a href="#contact" class="text-secondary-400 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#accueil" class="text-secondary-400 hover:text-white transition-colors hover:pl-1 inline-block">Accueil</a></li>
+                        <li><a href="#apropos" class="text-secondary-400 hover:text-white transition-colors hover:pl-1 inline-block">À propos</a></li>
+                        <li><a href="#competences" class="text-secondary-400 hover:text-white transition-colors hover:pl-1 inline-block">Compétences</a></li>
+                        <li><a href="#projets" class="text-secondary-400 hover:text-white transition-colors hover:pl-1 inline-block">Projets</a></li>
+                        <li><a href="#contact" class="text-secondary-400 hover:text-white transition-colors hover:pl-1 inline-block">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="text-center md:text-left">
-                    <h4 class="text-lg font-semibold mb-3">Contactez-moi</h4>
-                    <p class="text-secondary-400 mb-2">finabadji30@gmail.com</p>
-                    <p class="text-secondary-400 mb-2">+221 77 628 69 48</p>
-                    <p class="text-secondary-400">Dakar, Sénégal</p>
+                    <h4 class="text-lg font-semibold mb-4 text-white">Contactez-moi</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center justify-center md:justify-start text-secondary-400">
+                            <i class="fas fa-envelope mr-2 text-primary-400"></i>
+                            <a href="mailto:finabadji30@gmail.com" class="hover:text-white transition-colors">finabadji30@gmail.com</a>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start text-secondary-400">
+                            <i class="fas fa-phone mr-2 text-primary-400"></i>
+                            <a href="tel:+221776286948" class="hover:text-white transition-colors">+221 77 628 69 48</a>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start text-secondary-400">
+                            <i class="fas fa-map-marker-alt mr-2 text-primary-400"></i>
+                            <span>Dakar, Sénégal</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             
             <div class="mt-10 pt-6 border-t border-secondary-800 text-center">
-                <p class="text-secondary-400">&copy; 2025 NAFI BADJI - Tous droits réservés</p>
+                <p class="text-secondary-400">&copy; <span id="current-year">2025</span> NAFI BADJI - Tous droits réservés</p>
             </div>
         </div>
     </footer>
 
     <!-- Notification Toast -->
-    <div id="notification" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 opacity-0 transition-opacity duration-300 pointer-events-none">
-        Message envoyé avec succès !
+    <div id="notification" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-lg shadow-lg z-50 opacity-0 transition-all duration-500 pointer-events-none max-w-md flex items-center text-white bg-gradient-to-r from-primary-600 to-accent-500">
+        <span class="inline-block mr-3">
+            <i class="fas fa-check-circle text-xl"></i>
+        </span>
+        <span id="notification-message">Message envoyé avec succès !</span>
     </div>
 
     <script>
+        // Préchargeur
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('opacity-0');
+                setTimeout(function() {
+                    document.getElementById('preloader').style.display = 'none';
+                    
+                    // Activer les animations après le chargement
+                    document.querySelectorAll('.animate-item').forEach(item => {
+                        const delay = item.getAttribute('data-delay') || 0;
+                        setTimeout(() => {
+                            item.classList.add('animate-visible');
+                        }, delay);
+                    });
+                }, 500);
+            }, 800);
+        });
+        
+        // Indicateur de défilement
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.scroll-indicator').style.setProperty('--scroll', `${scrollPercent}%`);
+            
+            // Afficher/masquer le bouton "retour en haut"
+            if (scrollTop > 300) {
+                document.getElementById('back-to-top').classList.remove('scale-0', 'opacity-0');
+                document.getElementById('back-to-top').classList.add('scale-100', 'opacity-100');
+            } else {
+                document.getElementById('back-to-top').classList.remove('scale-100', 'opacity-100');
+                document.getElementById('back-to-top').classList.add('scale-0', 'opacity-0');
+            }
+            
+            // Effet de réduction de la barre de navigation
+            if (scrollTop > 50) {
+                document.getElementById('navbar').classList.add('py-2');
+                document.getElementById('navbar').classList.remove('py-4');
+            } else {
+                document.getElementById('navbar').classList.add('py-4');
+                document.getElementById('navbar').classList.remove('py-2');
+            }
+            
+            // Animer les éléments au défilement
+            animateOnScroll();
+        });
+        
         // Gestion du menu mobile
         document.getElementById('menu-toggle').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.remove('translate-x-full');
@@ -515,23 +1236,134 @@
         // Bouton de basculement du mode sombre
         document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
         
+        // Bouton "retour en haut"
+        document.getElementById('back-to-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
         // Animation au défilement
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.card, .section-title, .project-card, .skill-card');
+            const elements = document.querySelectorAll('.animate-item:not(.animate-visible)');
             
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
-                const elementBottom = element.getBoundingClientRect().bottom;
                 const windowHeight = window.innerHeight;
                 
-                if (elementTop < windowHeight - 100 && elementBottom > 0) {
-                    element.classList.add('animate-in');
+                if (elementTop < windowHeight - 100) {
+                    const delay = element.getAttribute('data-delay') || 0;
+                    setTimeout(() => {
+                        element.classList.add('animate-visible');
+                    }, delay);
                 }
             });
         }
         
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll(); // Exécuter une fois au chargement
+        // Filtres de compétences
+        document.querySelectorAll('.skill-filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Retirer la classe active de tous les boutons
+                document.querySelectorAll('.skill-filter-btn').forEach(btn => {
+                    btn.classList.remove('active', 'bg-primary-600', 'text-white');
+                    btn.classList.add('bg-white', 'dark:bg-secondary-700', 'text-secondary-800', 'dark:text-white');
+                });
+                
+                // Ajouter la classe active au bouton cliqué
+                this.classList.add('active', 'bg-primary-600', 'text-white');
+                this.classList.remove('bg-white', 'dark:bg-secondary-700', 'text-secondary-800', 'dark:text-white');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Filtrer les cartes de compétences
+                document.querySelectorAll('.skill-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Filtres de projets
+        document.querySelectorAll('.project-filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Retirer la classe active de tous les boutons
+                document.querySelectorAll('.project-filter-btn').forEach(btn => {
+                    btn.classList.remove('active', 'bg-primary-600', 'text-white');
+                    btn.classList.add('bg-white', 'dark:bg-secondary-700', 'text-secondary-800', 'dark:text-white');
+                });
+                
+                // Ajouter la classe active au bouton cliqué
+                this.classList.add('active', 'bg-primary-600', 'text-white');
+                this.classList.remove('bg-white', 'dark:bg-secondary-700', 'text-secondary-800', 'dark:text-white');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Filtrer les cartes de projets
+                document.querySelectorAll('.project-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Effets de parallaxe pour l'avatar
+        const parallaxContainer = document.querySelector('.parallax');
+        if (parallaxContainer) {
+            parallaxContainer.addEventListener('mousemove', function(e) {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                
+                const items = this.querySelectorAll('.parallax-item');
+                items.forEach(item => {
+                    const depth = item.getAttribute('data-depth');
+                    const translateX = xAxis * depth;
+                    const translateY = yAxis * depth;
+                    item.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`;
+                });
+            });
+            
+            parallaxContainer.addEventListener('mouseleave', function() {
+                const items = this.querySelectorAll('.parallax-item');
+                items.forEach(item => {
+                    item.style.transform = 'translateX(0) translateY(0)';
+                });
+            });
+        }
+        
+        // Animer les barres de compétences
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            
+            skillBars.forEach(bar => {
+                const percent = bar.style.getPropertyValue('--percent');
+                bar.style.width = '0%';
+                
+                setTimeout(() => {
+                    bar.style.transition = 'width 1.5s ease-in-out';
+                    bar.style.width = percent;
+                }, 300);
+            });
+        }
+        
+        // Activer l'animation des barres de compétences lorsque la section est visible
+        const skillsSection = document.getElementById('competences');
+        const skillsSectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    skillsSectionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        skillsSectionObserver.observe(skillsSection);
         
         // Smooth scroll pour les liens d'ancrage
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -549,39 +1381,153 @@
                 }
             });
         });
+        
+        // Gestion active des liens de navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+                link.classList.remove('text-primary-600', 'dark:text-primary-400');
+                link.classList.add('text-secondary-700', 'dark:text-secondary-200');
+                
+                const href = link.getAttribute('href').substring(1);
+                if (href === current) {
+                    link.classList.remove('text-secondary-700', 'dark:text-secondary-200');
+                    link.classList.add('text-primary-600', 'dark:text-primary-400');
+                }
+            });
+        });
 
         // Gestion du formulaire de contact
         document.getElementById('contact-form').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const name = document.getElementById('name').value;
+            // Vérification de base des champs
             const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            const facebook = document.getElementById('facebook').value;
-            const instagram = document.getElementById('instagram').value;
-
-            const data = {
-                name,
-                email,
-                message,
-                facebook,
-                instagram
-            };
-
-            console.log('Données du formulaire :', data);
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             
-            // Afficher la notification
+            if (!emailRegex.test(email)) {
+                showNotification("Veuillez entrer une adresse email valide.", "error");
+                return;
+            }
+
+            // Simuler l'envoi du formulaire
             const notification = document.getElementById('notification');
-            notification.classList.remove('opacity-0');
-            notification.classList.add('opacity-100');
+            const notificationMessage = document.getElementById('notification-message');
+            
+            // Afficher un état de chargement
+            notification.classList.remove('bg-green-500', 'bg-red-500', 'from-primary-600', 'to-accent-500', 'from-red-600', 'to-red-500');
+            notification.classList.add('from-primary-600', 'to-accent-500', 'opacity-100');
+            notificationMessage.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Envoi en cours...';
+            
+            // Simuler un délai d'envoi
+            setTimeout(() => {
+                // Collecter les données du formulaire
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                const facebook = document.getElementById('facebook').value;
+                const instagram = document.getElementById('instagram').value;
+
+                const formData = {
+                    name,
+                    email,
+                    subject,
+                    message,
+                    facebook,
+                    instagram
+                };
+
+                console.log('Données du formulaire :', formData);
+                
+                // Afficher la notification de succès
+                showNotification("Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.", "success");
+                
+                // Réinitialiser le formulaire
+                this.reset();
+            }, 1500);
+        });
+        
+        function showNotification(message, type = "success") {
+            const notification = document.getElementById('notification');
+            const notificationMessage = document.getElementById('notification-message');
+            
+            notification.classList.remove('opacity-0', 'from-primary-600', 'to-accent-500', 'from-red-600', 'to-red-500');
+            
+            if (type === "error") {
+                notification.classList.add('from-red-600', 'to-red-500', 'opacity-100');
+                notificationMessage.innerHTML = `<i class="fas fa-exclamation-circle mr-2"></i> ${message}`;
+            } else {
+                notification.classList.add('from-primary-600', 'to-accent-500', 'opacity-100');
+                notificationMessage.innerHTML = `<i class="fas fa-check-circle mr-2"></i> ${message}`;
+            }
             
             setTimeout(() => {
                 notification.classList.remove('opacity-100');
                 notification.classList.add('opacity-0');
             }, 5000);
+        }
+        
+        // Mettre à jour l'année en cours dans le footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Générer des particules pour l'arrière-plan
+        function createParticles() {
+            const container = document.querySelector('.particles-container');
+            if (!container) return;
             
-            this.reset();
-        });
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                
+                // Style aléatoire pour les particules
+                const size = Math.random() * 6 + 2;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                
+                particle.classList.add('absolute', 'rounded-full');
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.opacity = '0';
+                particle.style.animation = `fadeInOut ${duration}s ease-in-out ${delay}s infinite`;
+                
+                // Couleur aléatoire
+                const hue = Math.random() * 60 + 200; // bleu/violet
+                particle.style.backgroundColor = `hsla(${hue}, 70%, 60%, 0.3)`;
+                
+                // Ajouter la particule au conteneur
+                container.appendChild(particle);
+                
+                // Ajouter le style d'animation si nécessaire
+                if (!document.querySelector('style#particle-animation')) {
+                    const style = document.createElement('style');
+                    style.id = 'particle-animation';
+                    style.textContent = `
+                        @keyframes fadeInOut {
+                            0%, 100% { opacity: 0; transform: translateY(0); }
+                            50% { opacity: 0.5; transform: translateY(-20px); }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+            }
+        }
+        
+        createParticles();
     </script>
 </body>
 </html>
